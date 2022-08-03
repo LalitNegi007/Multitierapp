@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CommonLayer.Models.Customer>
+
+<table class="table table-bordered">
+
+    <a asp-action="Create" asp-controller="Customer" class="btn btn-danger">Create</a>
+    <tr>
+        <th>Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Address</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var cust in Model)
+    {
+<tr>
+    <td>@cust.Id</td>
+    <td>@cust.FirstName</td>
+    <td>@cust.LastName</td>
+    <td>@cust.Email</td>
+    <td>@cust.Mobile</td>
+    <td>@cust.Address</td>
+    <td> <a asp-action="Delete" asp-controller="Customer" asp-route-id="@cust.Id">Delete</a>
+         <a asp-action="Edit" asp-controller="Customer" asp-route-id="@cust.Id">Edit</a></td>
+   
+
+</tr>
+
+    }
+</table>
